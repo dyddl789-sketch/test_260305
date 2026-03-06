@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class twoDArray {
 	public static void main(String[] args) {
-		int Array[][] = new int[4][4];
+		int Array[][] = new int[3][4];
 		Random rdnum = new Random();
 		int sum = 0;
 		for (int i = 0; i < Array.length; i++) {
