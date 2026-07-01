@@ -1,0 +1,29 @@
+---
+- name: install nginx on linux
+  hosts: nginx
+  gather_facts: no
+
+  tasks:
+    - name: install epel-release
+      yum:
+        name: epel-release
+        state: latest
+
+    - name: install nginx web server
+      yum:
+        name: nginx
+        state: present
+
+    - name: copy local index.html file
+      copy:
+        src: ./index.html
+        dest: /usr/share/nginx/html/index.html
+        owner: root
+        group: root
+        mode: '0644'
+
+    - name: nginx server start
+      service:
+        name: nginx
+        state: started
+        enabled: yes
